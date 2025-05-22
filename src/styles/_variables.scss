@@ -1,0 +1,76 @@
+//Colors
+$primaryDark: hsl(221, 18%, 18%);
+$secondaryDark: hsl(221, 20%, 16%);
+$tertiaryDark: hsl(221, 22%, 14%);
+
+$primaryLight: #ffffff;
+$secondaryLight: #f9fafb;
+$tertiaryLight: #fafafb;
+
+//Screen Sizes
+$xl: 1279px;
+$lg: 1024px;
+$md: 768px;
+
+$headerHeight: 64px;
+$sidebarWidth: 64px;
+$footerHeight: 100px;
+
+$borderRadius: 5px;
+
+@mixin xl {
+  @media (min-width: $xl) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin noDrag {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -khtml-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+@mixin button($foreground, $background, $backgroundSecondary) {
+  @include flexCenter;
+  @include noDrag;
+  gap: 0.5em;
+  cursor: pointer;
+  border: $foreground 1px solid;
+  border-radius: 5px;
+  font-size: 1em;
+  padding: 0.5em 0.8em;
+  transition: background-color 0.25s ease;
+  text-align: center;
+  background-color: $background;
+  color: $foreground;
+
+  &:hover {
+    background-color: $backgroundSecondary;
+  }
+}
